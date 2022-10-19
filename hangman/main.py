@@ -20,7 +20,7 @@ for current_answer_character in answer:
 current_incorrect_guesses = 0
 letters_guessed = []
 
-while current_incorrect_guesses < num_of_incorrect_guesses and (False not in answer_guessed):
+while current_incorrect_guesses < num_of_incorrect_guesses and False in answer_guessed:
     #Game summary.
     print(f"Number of incorrect guesses remaining: {num_of_incorrect_guesses - current_incorrect_guesses}")
     
@@ -58,18 +58,18 @@ while current_incorrect_guesses < num_of_incorrect_guesses and (False not in ans
 
             current_letter_guessed += 1
 
-    letters_guessed.insert(current_letter_index, letter)
+        letters_guessed.insert(current_letter_index, letter)
 
     #See if letter is in the answer
-    if letter in answer:
-        for current_answer_index in range(len(answer)):
-            if letter == answer[current_answer_index]:
-                answer_guessed[current_answer_index] = True
+        if letter in answer:
+            for current_answer_index in range(len(answer)):
+                if letter == answer[current_answer_index]:
+                    answer_guessed[current_answer_index] = True
         else:
             current_incorrect_guesses += 1
 
 #Post-game summary.
-if(current_incorrect_guesses<num_of_incorrect_guesses):
+if current_incorrect_guesses<num_of_incorrect_guesses:
     print("Congratulations, you won!")
 else:
     print(f"Sorry, you lost. The answer was: {answer}")
