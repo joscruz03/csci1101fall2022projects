@@ -56,7 +56,7 @@ while current_incorrect_guesses < num_of_incorrect_guesses and False in answer_g
             if(letter < current_letter_guessed):
                 break
 
-            current_letter_guessed += 1
+            current_letter_index += 1
 
         letters_guessed.insert(current_letter_index, letter)
 
