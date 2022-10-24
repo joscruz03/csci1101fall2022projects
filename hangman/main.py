@@ -1,7 +1,21 @@
 import re
+import random
 
 #Getting the answer.
-answer = "What's up, Doc?"
+pool_file = open("hangman\hangman-sample-answer-pool.txt")
+
+pool_answers = []
+
+pool_answer_line = pool_file.readline()
+
+while pool_answer_line:
+    pool_answers.append(pool_answer_line)
+
+    pool_answer_line = pool_file.readline()
+
+pool_file.close()
+
+answer = random.choice(pool_answers)
 
 answer = answer.upper()
 
@@ -71,5 +85,6 @@ while current_incorrect_guesses < num_of_incorrect_guesses and False in answer_g
 #Post-game summary.
 if current_incorrect_guesses<num_of_incorrect_guesses:
     print("Congratulations, you won!")
+    
 else:
     print(f"Sorry, you lost. The answer was: {answer}")
